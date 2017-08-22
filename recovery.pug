@@ -1,0 +1,23 @@
+doctype html
+html(ng-app='recovery' ng-controller='recovery')
+  head
+    include ./head.jade
+    title(ng-bind='title')
+  body
+    div.logo
+      img(src='img/main_logo.png' alt='')
+    div.form
+      form(onsubmit='return false' autocomplete='off')
+        div.form-group
+          label(for='email') E-mail:
+          input#email(type='text' ng-model='form.email').form-control
+        div.alert.alert-danger.bad E-mail is not found
+        div.alert.alert-success.good Your username and new password is sent to your email
+        div
+          button.btn.btn-primary(ng-click='submit()') Recovery
+    div.links
+      hr
+      a(href='sign_in.html') Sign in
+      br
+      a(href='sign_up.html') Sign up
+    include ./scripts.jade

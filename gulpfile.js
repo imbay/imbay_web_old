@@ -16,12 +16,17 @@ ext = {
 	css: '.css'
 },
 liveReload = {
-	on: true,
+	on: false,
 	host: '127.0.0.1',
 	port: 2001,
 	baseDir: './',
-	open: true,
+	open: false,
 	notify: false
+},
+expressConf = {
+	on: true,
+	path: './',
+	port: 1996
 };
 // Require modules.
 const
@@ -32,6 +37,8 @@ const
 	watch = require('gulp-watch'),
 	rename = require('gulp-rename'),
 	browserSync = require('browser-sync'),
+	express = require('express'),
+	app = express()
 	reload = browserSync.reload;
 // Run livereload.
 if(liveReload.on === true) {
@@ -43,6 +50,11 @@ if(liveReload.on === true) {
 		open: liveReload.open,
 		notify: liveReload.notify
 	});
+}
+// Run the server.
+if(expressConf.on === true) {
+	app.use(express.static(expressConf.path));
+	app.listen(expressConf.port);
 }
 // Tasks.
 gulp.task('html', function() {

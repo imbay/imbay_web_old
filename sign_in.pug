@@ -1,0 +1,25 @@
+doctype html
+html(ng-app='sign_in' ng-controller='sign_in')
+  head
+    include ./head.jade
+    title(ng-bind='title')
+  body
+    div.logo
+      img(src='img/main_logo.png' alt='')
+    div.form
+      form(onsubmit='return false' autocomplete='off')
+        div.form-group
+          label(for='username') Username:
+          input#username(type='text' ng-model='form.username').form-control
+        div.form-group
+          label(for='password') Password:
+          input#password(type='text' ng-model='form.password').form-control
+        div.alert.alert-danger Username or password is invalid
+        div
+          button.btn.btn-primary(ng-click='submit()') Sign in
+    div.links
+      hr
+      a(href='recovery.html') Recovery account
+      br
+      a(href='sign_up.html') Sign up
+    include ./scripts.jade

@@ -1,0 +1,69 @@
+doctype html
+html(ng-app='sign_up' ng-controller='sign_up')
+  head
+    include ./head.jade
+    title(ng-bind='title')
+  body
+    div.form
+      form(onsubmit='return false' autocomplete='off')
+        div.form-group
+          label(for='first_name') First name:
+          div.text-danger.error.first_name.min Min
+          div.text-danger.error.first_name.max Max
+          div.text-danger.error.first_name.invalid Invalid
+          input#first_name(type='text' ng-model='form.first_name').form-control
+        div.form-group
+          label(for='last_name') Last name:
+          div.text-danger.error.last_name.min Min
+          div.text-danger.error.last_name.max Max
+          div.text-danger.error.last_name.invalid Invalid
+          input#last_name(type='text' ng-model='form.last_name').form-control
+        div.form-group
+          label(for='birthday') Birthday:
+          div.text-danger.error.birthday.invalid Invalid
+          div.text-danger.error.birthday.limit Limit
+          div.input-group.date(data-provide='datepicker')
+            input#birthday(type='text' ng-model='form.birthday').form-control
+            div.input-group-addon
+              span.glyphicon.glyphicon-th
+        div.form-group
+          label Gender:
+          br
+          div.text-danger.error.gender.invalid Invalid
+          input#male(type='radio' ng-model='form.gender' value='1')
+          label(for='male') male
+          br
+          input#female(type='radio' ng-model='form.gender' value='0')
+          label(for='female') female
+        div.form-group
+          label(for='inviter') Inviter:
+          div.text-muted (not necessarily)
+          div.text-danger.error.inviter.not_found Not found
+          input#inviter(type='text' ng-model='form.inviter').form-control
+        div.form-group
+          label(for='email') E-mail:
+          div.text-muted (not necessarily)
+          div.text-danger.error.email.min Min
+          div.text-danger.error.email.max Max
+          div.text-danger.error.email.invalid Invalid
+          div.text-danger.error.email.unique Unique
+          input#email(type='text' ng-model='form.email').form-control
+        div.form-group
+          label(for='username') Username:
+          div.text-danger.error.username.min Min
+          div.text-danger.error.username.max Max
+          div.text-danger.error.username.invalid Invalid
+          div.text-danger.error.username.unique Unique
+          input#username(type='text' ng-model='form.username').form-control
+        div.form-group
+          label(for='password') Password:
+          div.text-danger.error.password.min Min
+          div.text-danger.error.password.max Max
+          div.text-danger.error.password.invalid Invalid
+          input#password(type='text' ng-model='form.password').form-control
+        div
+          button.btn.btn-primary(ng-click='submit()') Sign up
+    div.links
+      hr
+      a(href='sign_in.html') Sign in
+    include ./scripts.jade

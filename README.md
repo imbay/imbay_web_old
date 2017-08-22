@@ -39,9 +39,30 @@ mv -f bootstrap-3.3.7-dist/js/bootstrap.js js/lib/bootstrap.js &&\
 mv -f bootstrap-3.3.7-dist/fonts/* css/fonts &&\
 rm -r bootstrap-3.3.7-dist
 
+rm -rf bootstrap-datepicker &&\
+mkdir bootstrap-datepicker &&\
+cd bootstrap-datepicker &&\
+wget https://github.com/uxsolutions/bootstrap-datepicker/releases/download/v1.6.4/bootstrap-datepicker-1.6.4-dist.zip &&\
+unzip bootstrap-datepicker-1.6.4-dist.zip &&\
+rm bootstrap-datepicker-1.6.4-dist.zip &&\
+cd ../ &&\
+mv -f bootstrap-datepicker/js/bootstrap-datepicker.min.js js/lib/bootstrap-datepicker.js &&\
+mv -f bootstrap-datepicker/css/bootstrap-datepicker.min.css css/lib/bootstrap-datepicker.css &&\
+mv -f bootstrap-datepicker/css/bootstrap-datepicker.standalone.min.css css/lib/bootstrap-datepicker.standalone.css &&\
+mv -f bootstrap-datepicker/locales/bootstrap-datepicker.en-AU.min.js js/lib/bootstrap-datepicker.en-AU.js
+rm -rf bootstrap-datepicker
+
 wget https://necolas.github.io/normalize.css/7.0.0/normalize.css &&\
 mv -f normalize.css css/lib/normalize.css
+
+wget http://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-cookies.min.js &&\
+mv -f angular-cookies.min.js js/lib/angular-cookies.js
+
+wget https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js &&\
+mv -f jquery.cookie.min.js js/lib/jquery.cookie.js
 
 gulp start
 
 git checkout dev && sudo chmod 777 save.sh && ./save.sh
+
+git rm -r --cached . && git reset && git add --all && git commit -m "dev" && git push origin master
