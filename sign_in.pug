@@ -13,7 +13,7 @@ html(ng-app='sign_in' ng-controller='sign_in')
           input#username(type='text' ng-model='form.username').form-control
         div.form-group
           label(for='password') Password:
-          input#password(type='text' ng-model='form.password').form-control
+          input#password(type='password' ng-model='form.password').form-control
         div.alert.alert-danger Username or password is invalid
         div
           button.btn.btn-primary(ng-click='submit()') Sign in

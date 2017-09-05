@@ -58,8 +58,17 @@ mv -f normalize.css css/lib/normalize.css
 wget http://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-cookies.min.js &&\
 mv -f angular-cookies.min.js js/lib/angular-cookies.js
 
+wget http://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.min.js &&\
+mv -f angular-route.min.js js/lib/angular-route.js
+
 wget https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js &&\
 mv -f jquery.cookie.min.js js/lib/jquery.cookie.js
+
+wget https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js &&\
+mv -f bootbox.min.js js/lib/bootbox.js
+
+wget http://underscorejs.org/underscore-min.js &&\
+mv -f underscore-min.js js/lib/underscore.js
 
 gulp start
 

@@ -1,0 +1,32 @@
+div(ng-controller='my_dialogs')
+  ul.nav.nav-tabs.nav-justified
+    li(role='presentation')
+      a(href='/#!/dialog') Dialogs
+    li(role='presentation').active
+      a My dialogs
+  div.content
+    div.form
+      div.panel.panel-default
+        div.panel-heading Create new dialog
+        div.panel-body
+          form(autocomplete='off', onsubmit='return false')
+            div.form-group
+              input(type='text' placeholder='Title' ng-model='form.title').form-control
+              div.text-danger.error.title.min Min
+              div.text-danger.error.title.max Max
+            div.form-group
+              input#is_anon(type='checkbox' ng-model='form.is_anon')
+              label(for='is_anon') anonymous
+            button.btn.btn-success(ng-click='submit()') Create
+    div.panel.panel-default
+      div.panel-heading My dialogs
+      dov.panel-body
+        div.row.dialog_row
+          div(ng-show='dialogs.length == 0').alert.alert-warning Empty
+          div.row-item.col-md-6(ng-repeat='dialog in dialogs', class='dialog_id_{{dialog.id}}')
+            div._content.new_messages
+              div.title
+                b {{dialog.title}}
+              div.label.label-warning(ng-if='dialog.is_anon') anonymous
+              div.button
+                button.btn.btn-danger.btn-xs(ng-click='delete(dialog.id)') remove

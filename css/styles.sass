@@ -23,3 +23,66 @@ html[ng-app='recovery']
     margin-top: 25px
   div.alert
     display: none
+
+html[ng-app='index']
+  header.navbar.navbar-default
+    margin-top: 15px
+  a.navbar-brand
+    padding: 0
+    margin: 0
+    margin-right: 15px
+    img
+      width: 80px
+      margin-top: 8px
+      margin-left: 12px
+  ul.nav.navbar-nav
+    li a i
+      margin-left: 7px
+      font-size: 15px
+  div.user_info
+    margin-bottom: 15px
+
+div[ng-controller='dialog'],
+div[ng-controller='my_dialogs']
+  div.row.dialog_row
+    div.alert
+      margin-left: 15px
+      margin-right: 15px
+      display: inline-block
+  div.content
+    border: 1px solid #ddd
+    border-radius: 0 0 4px 4px
+    padding: 15px
+    margin-top: -1px
+    div.row.dialog_row
+      padding: 10px
+      div.row-item
+        padding: 10px
+        a._content,
+        div._content
+          overflow: hidden
+          display: block
+          color: black
+          cursor: pointer
+          &:hover,
+          &:active
+            text-decoration: none
+          padding: 15px
+          border: 1px solid #ddd
+          border-radius: 3px
+          &.new_message
+            background-color: #eff5ff
+        div.message
+          margin-top: 5px
+        div.button
+          margin-top: 10px
+          float: right
+  div.form
+    max-width: 500px
+    form
+      div.form-group
+        margin-top: 10px
+div[ng-controller='my_dialogs']
+  form
+    div.error
+      display: none

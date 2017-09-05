@@ -2,6 +2,33 @@ doctype html
 html(ng-app='index' ng-controller='index')
   head
     include ./head.jade
-    title {{ title }}
+    title(ng-bind='title')
   body
+    div.container
+      header.navbar.navbar-default
+        div.container-fluid
+          div.navbar-header
+            button.navbar-toggle.collapsed(data-toggle='collapse' data-target='#bs-example-navbar-collapse-1' aria-expanded='false' type='button')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='/')
+              img(src='/img/main_logo.png' alt='')
+          div.collapse.navbar-collapse#bs-example-navbar-collapse-1
+            ul.nav.navbar-nav
+              li.main
+                a(href='/')
+                  span Main
+                  i.fa.fa-home
+              li.dialog
+                a(href='/#!/dialog')
+                  span Dialog
+                  i.fa.fa-comment
+            ul.nav.navbar-nav.navbar-right
+              li.sign_out
+                a(href='/sign_out.html')
+                  span Sign out
+                  i.fa.fa-sign-out
+      div(ng-view)
     include ./scripts.jade

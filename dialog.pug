@@ -1,0 +1,17 @@
+div(ng-controller='dialog')
+  ul.nav.nav-tabs.nav-justified
+    li(role='presentation').active
+      a Dialogs
+    li(role='presentation')
+      a(href='/#!/my_dialogs') My dialogs
+  div.content
+    div.row.dialog_row
+      div(ng-show='dialogs.length == 0').alert.alert-warning Empty
+      div.row-item.col-md-6(ng-repeat='dialog in dialogs')
+        a(href='#')._content.new_messages
+          div.title
+            b {{dialog.title}}
+          div.message.text-muted {{dialog.last_message}}
+          div.label.label-danger(ng-if='dialog.is_anon') anonymous
+          div.label.label-success(ng-if='dialog.new_messages_count > 1') {{dialog.new_messages_count}} new messages
+          div.label.label-success(ng-if='dialog.new_messages_count == 1') {{dialog.new_messages_count}} new message
